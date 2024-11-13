@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@assistant-ui/react": "^0.7.0",
+    "@assistant-ui/react-ai-sdk": "^0.7.0",
     "@assistant-ui/react-markdown": "^0.7.0",
+    "ai": "^3.4.33",
     "next": "15.0.3",
     "react": "^18",
     "react-dom": "^18",

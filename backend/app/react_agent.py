@@ -40,9 +40,9 @@ def get_stock_price(stock_symbol: str):
             "volume": 52436789,
             "market_cap": "2.73T",
             "pe_ratio": 28.5,
-            "52_week_high": 198.23,
-            "52_week_low": 124.17,
-            "timestamp": datetime.now().isoformat()
+            "fifty_two_week_high": 198.23,
+            "fifty_two_week_low": 124.17,
+            "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         },
         # Add more mock data for other symbols as needed
     }
