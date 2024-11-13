@@ -1,6 +1,14 @@
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from langserve import add_routes
+from .react_agent import agent_executor
+from pydantic import BaseModel
+from typing import List, Union
+from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
+
+
+class ChatInputType(BaseModel):
+    messages: List[Union[HumanMessage, AIMessage, SystemMessage]]
 
 app = FastAPI()
 
@@ -11,7 +19,8 @@ async def redirect_root_to_docs():
 
 
 # Edit this to add the chain you want to add
-add_routes(app, NotImplemented)
+prebuilt_react_agent_runnable = agent_executor.with_types(input_type=ChatInputType)
+add_routes(app, prebuilt_react_agent_runnable, path="/agent")
 
 if __name__ == "__main__":
     import uvicorn
