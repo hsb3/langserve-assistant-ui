@@ -28,6 +28,10 @@ langserve-assistant-ui/
 
 ## Setup Instructions
 
+### Set up environment variables
+
+Go to `./backend` and create `.env` file. Follow the example in `.env.example`.
+
 ### Backend Setup
 
 The backend is built using the LangChain CLI and utilizes LangGraph's `create_react_agent` for agent creation.
