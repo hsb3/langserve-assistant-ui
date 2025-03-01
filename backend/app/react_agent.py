@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from langchain_openai import AzureChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain_core.tools import tool
 from langchain_core.messages import SystemMessage
 from langgraph.prebuilt import create_react_agent
@@ -8,11 +8,9 @@ from datetime import datetime, timezone
 
 load_dotenv()
 
-llm = AzureChatOpenAI(
-    openai_api_version=os.environ.get("AZURE_OPENAI_API_VERSION", "2023-07-01-preview"),
-    azure_deployment=os.environ.get("AZURE_OPENAI_DEPLOYMENT", "gpt35"),
-    azure_endpoint=os.environ.get("AZURE_OPENAI_ENDPOINT", "https://<your-endpoint>.openai.azure.com/"),
-    api_key=os.environ.get("AZURE_OPENAI_KEY")
+llm = ChatOpenAI(
+    model="gpt-3.5-turbo",
+    api_key=os.environ.get("OPENAI_API_KEY")
 )
 
 
@@ -60,4 +58,3 @@ You are able to call the following tools:
 
 system_message = SystemMessage(content=SYSTEM_PROMPT)
 agent_executor = create_react_agent(llm, tools, messages_modifier=system_message)
-

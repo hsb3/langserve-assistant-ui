@@ -30,7 +30,14 @@ langserve-assistant-ui/
 
 ### Set up environment variables
 
-Go to `./backend` and create `.env` file. Follow the example in `.env.example`.
+Go to `./backend` and create `.env` file with your OpenAI API key:
+
+```
+# OpenAI API Key
+OPENAI_API_KEY=your-openai-api-key
+```
+
+Note: This project uses OpenAI's API directly (not Azure OpenAI).
 
 ### Backend Setup
 
@@ -62,7 +69,7 @@ You can query tools directly using simple prompts:
 Example: "What is the stock price of Apple?"
 ```
 
-![Stock price query example](./images/get_stock_price.png)
+
 
 ### Agent-Based Interactions
 
@@ -72,7 +79,7 @@ The agent can process more complex queries requiring multiple steps:
 Example: "What is the weather in San Francisco?"
 ```
 
-![Weather query example](./images/get_weather.png)
+
 
 ## Technical Details
 
